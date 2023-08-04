@@ -29,8 +29,8 @@ router.post("/login",async (req,res)=>{
     
         const {email,password} = req.body;
         const user = await User.findByCredentials(email,password);
-        user.status = "online";
-        await user.save();
+        // user.status = "online";
+        // await user.save();
         if(user){
             Jwt.sign({user},jwtKey,{expiresIn:"2h"},(err,token)=>{
                 if(err){

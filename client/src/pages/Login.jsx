@@ -1,6 +1,8 @@
 import React,{useState,useEffect, useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {AppContext} from "../context/appContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = ()=>{
 
@@ -17,8 +19,11 @@ const Login = ()=>{
         }
     })
 
+    let  width = screen.width;
+    
     async function handleSubmit(e){
         e.preventDefault();
+        
         let result = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/login`,{
             method:"Post",
             body:JSON.stringify({email,password}),
@@ -42,7 +47,16 @@ const Login = ()=>{
         }
         
         }else{
-            alert("User not found")
+            toast.error("Invalid Email or Password", {
+                position: (width>=764)?"top-center" :"bottom-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
         
     }
@@ -61,7 +75,7 @@ const Login = ()=>{
                             <div className="">
                             <div>
                                     <div className="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                         <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="email" placeholder="Enter your email"  required value={email} onChange={(e)=>{setEmail(e.target.value)}} />
+                                         <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="email" placeholder="Enter your email" maxLength={64} required value={email} onChange={(e)=>{setEmail(e.target.value)}} />
                                     </div>
                             </div>
                                 
@@ -72,7 +86,7 @@ const Login = ()=>{
                                         </div>
                                         
                                     </div>
-                                    <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="password" placeholder="Enter your password" required value={password} onChange={(e)=>{setPassword(e.target.value)}} />
+                                    <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="password" placeholder="Enter your password" maxLength={15} required value={password} onChange={(e)=>{setPassword(e.target.value)}} />
                                 </div>
                                 <div className="mt-10 flex justify-center items-center">
                                     <button className="bg-green-800 text-gray-100 p-4 w-[60%] rounded-full tracking-wide
@@ -88,6 +102,16 @@ const Login = ()=>{
                         </div>
                     </div>
                 </div>
+                <ToastContainer position= {(width>=764)?"top-center" :"bottom-center"}
+                            autoClose={2000}
+                            hideProgressBar={false}
+                            newestOnTop
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="colored" />
             </div>
 
 

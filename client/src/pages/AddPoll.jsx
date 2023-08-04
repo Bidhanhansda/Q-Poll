@@ -55,27 +55,27 @@ function handleSubmit(e){
 
           <div className='flex-col justify-center items-center m-3 mt-5 text-left'>
             <div className="text-md font-bold text-gray-700 tracking-wide">Question</div>
-            <input className=" bg-color4 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter your question" required value={question} onChange={(e)=>setQuestion(e.target.value)} />
+            <input className=" bg-color4 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter your question" maxLength={3000} required value={question} onChange={(e)=>setQuestion(e.target.value)} />
           </div>
 
           <div className='flex-col justify-center items-center m-3 mt-5 text-left'>
             <div className="text-sm font-bold text-gray-700 tracking-wide">Option 1</div>
-            <input className=" bg-color4  w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 1" required value={option1} onChange={(e)=>setOption1(e.target.value)} />
+            <input className=" bg-color4  w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 1" maxLength={3000} required value={option1} onChange={(e)=>setOption1(e.target.value)} />
           </div>
 
           <div className='flex-col justify-center items-center m-3 mt-5 text-left'>
             <div className="text-sm font-bold text-gray-700 tracking-wide">Option 2</div>
-            <input className=" bg-color4  w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 2" required value={option2} onChange={(e)=>setOption2(e.target.value)}/>
+            <input className=" bg-color4  w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 2" maxLength={3000} required value={option2} onChange={(e)=>setOption2(e.target.value)}/>
           </div>
 
           <div className='flex-col justify-center items-center m-3 mt-5 text-left'>
             <div className="text-sm font-bold text-gray-700 tracking-wide">Option 3</div>
-            <input className=" bg-color4 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 3" required value={option3} onChange={(e)=>setOption3(e.target.value)} />
+            <input className=" bg-color4 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 3" maxLength={3000} required value={option3} onChange={(e)=>setOption3(e.target.value)} />
           </div>
 
           <div className='flex-col justify-center items-center m-3 mt-5 text-left'>
             <div className="text-sm font-bold text-gray-700 tracking-wide">Option 4</div>
-            <input className=" bg-color4 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 4" required value={option4} onChange={(e)=>setOption4(e.target.value)} />
+            <input className=" bg-color4 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter Option 4" maxLength={3000} required value={option4} onChange={(e)=>setOption4(e.target.value)} />
           </div>
 
         </div>

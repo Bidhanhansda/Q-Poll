@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { robot } from "../assets/index";
 import { UilPlusCircle } from '@iconscout/react-unicons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
 
@@ -15,6 +17,7 @@ const Signup = () => {
     const [uploadingImg, setUploadingImg] = useState(false);
     const [imagePreview, setImagePreview] = useState(null);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         const auth = localStorage.getItem("user");
@@ -51,10 +54,20 @@ const Signup = () => {
         }
     }
 
+    let width = screen.width;
 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (!image) return alert("Please upload your profile picture");
+        if (!image) return  toast.warn("Please upload your profile picture", {
+            position: (width>=764)?"top-center" :"bottom-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });;
         const url = await uploadImage(image);
         
         let result = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/signup`, {
@@ -95,12 +108,12 @@ const Signup = () => {
                                 </div>
                                 <div>
                                     <div className="text-sm font-bold text-gray-700 tracking-wide">Name</div>
-                                    <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter your name" required value={name} onChange={(e) => { setName(e.target.value) }} />
+                                    <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="text" placeholder="Enter your name" required value={name} maxLength={15} onChange={(e) => { setName(e.target.value) }} />
                                 </div>
                                 <div className="mt-2">
                                     <div>
                                         <div className="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                        <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="email" placeholder="Enter your email" required value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                                        <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="email" placeholder="Enter your email" maxLength={64} required value={email} onChange={(e) => { setEmail(e.target.value) }} />
                                     </div>
                                 </div>
 
@@ -111,7 +124,7 @@ const Signup = () => {
                                         </div>
 
                                     </div>
-                                    <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="password" placeholder="Enter your password" required value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                                    <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500" type="password" placeholder="Enter your password" maxLength={15}  required value={password} onChange={(e) => { setPassword(e.target.value) }} />
                                 </div>
                                 <div className="mt-4 flex justify-center items-center ">
                                     <button className="bg-green-800 text-gray-100 mt-4 p-4 w-[60%]  rounded-full tracking-wide
@@ -127,6 +140,16 @@ const Signup = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer position= {(width>=764)?"top-center" :"bottom-center"}
+                            autoClose={2000}
+                            hideProgressBar={false}
+                            newestOnTop
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="colored" />
             </div>
 
 
