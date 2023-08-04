@@ -139,7 +139,7 @@ const Poll = () => {
                                                     width: `${poll.vote1.length !==0 ?(((poll.vote1.length) / (poll.totalVote.length)) * 100 ): 0}% `
                                                 }} className=" h-3 rounded-xl bg-green-800"><span className=" h-4 w-4 rounded-full font-bold float-right mt-[-15px] mr-[-20px] flex justify-center items-center text-green-950 ">
 
-                                                        {`${poll.vote1.length !==0 ?(((poll.vote1.length) / (poll.totalVote.length)) * 100 ): 0}% `}
+                                                        {`${poll.vote1.length !==0 ?(Math.round(((poll.vote1.length) / (poll.totalVote.length)) * 100 )): 0}% `}
 
                                                     </span></div>
                                             </div>
@@ -157,7 +157,7 @@ const Poll = () => {
                                             </div>
                                             <div className=" bg-color1 w-full h-3 rounded-xl ">
                                                 <div style={{ width: `${poll.vote2.length !==0 ?(((poll.vote2.length) / (poll.totalVote.length)) * 100 ): 0}% ` }} className=" h-3 rounded-xl bg-green-800"><span className=" h-4 w-4 rounded-full font-bold float-right mt-[-15px] mr-[-20px] flex justify-center items-center text-green-950">
-                                                    {`${poll.vote2.length !==0 ?(((poll.vote2.length) / (poll.totalVote.length)) * 100 ): 0}% `}
+                                                {`${poll.vote2.length !==0 ?(Math.round(((poll.vote2.length) / (poll.totalVote.length)) * 100 )): 0}% `}
                                                 </span></div>
                                             </div>
 
@@ -175,7 +175,7 @@ const Poll = () => {
 
                                             <div className=" bg-color1 w-full h-3 rounded-xl ">
                                                 <div style={{ width: `${poll.vote3.length !==0 ?(((poll.vote3.length) / (poll.totalVote.length)) * 100 ): 0}% ` }} className=" h-3 rounded-xl bg-green-800"><span className=" h-4 w-4 rounded-full font-medium float-right mt-[-15px] mr-[-20px] flex justify-center items-center text-green-950">
-                                                    {`${poll.vote3.length !==0 ?(((poll.vote3.length) / (poll.totalVote.length)) * 100 ): 0}% `}
+                                                {`${poll.vote3.length !==0 ?(Math.round(((poll.vote3.length) / (poll.totalVote.length)) * 100 )): 0}% `}
                                                 </span></div>
                                             </div>
 
@@ -192,7 +192,7 @@ const Poll = () => {
 
                                             <div className=" bg-color1 w-full h-3 rounded-xl ">
                                                 <div style={{ width: `${poll.vote4.length !==0 ?(((poll.vote4.length) / (poll.totalVote.length)) * 100 ): 0}% ` }} className=" h-3 rounded-xl bg-green-800"><span className=" h-4 w-4 rounded-full font-medium float-right mt-[-15px] mr-[-20px] flex justify-center items-center text-green-950">
-                                                    {`${poll.vote4.length !==0 ?(((poll.vote4.length) / (poll.totalVote.length)) * 100 ): 0}% `}
+                                                {`${poll.vote4.length !==0 ?(Math.round(((poll.vote4.length) / (poll.totalVote.length)) * 100 )): 0}% `}
                                                 </span></div>
                                             </div>
 
