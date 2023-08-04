@@ -19,7 +19,7 @@ const Login = ()=>{
 
     async function handleSubmit(e){
         e.preventDefault();
-        let result = await fetch("https://q-poll.onrender.com/users/login",{
+        let result = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/login`,{
             method:"Post",
             body:JSON.stringify({email,password}),
             headers:{

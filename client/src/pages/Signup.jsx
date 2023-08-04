@@ -57,7 +57,7 @@ const Signup = () => {
         if (!image) return alert("Please upload your profile picture");
         const url = await uploadImage(image);
         
-        let result = await fetch("https://q-poll.onrender.com/users/signup", {
+        let result = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/signup`, {
             method: "Post",
             body: JSON.stringify({ name, email, password,picture:url }),
             headers: {
